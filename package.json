@@ -1,12 +1,12 @@
 {
   "dependencies": {
     "dotenv": "^17.2.3",
+    "ejs": "^4.0.1",
     "express": "^5.2.1"
   },
   "name": "pexl",
   "version": "1.0.0",
   "main": "app.js",
-  "devDependencies": {},
   "scripts": {
     "start": "node --watch ./app.js"
   },
