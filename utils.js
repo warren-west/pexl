@@ -18,8 +18,8 @@ const VALID_EXTENSIONS = [
 
 /**
  * Read files in directory and return list of paths with valid file extension
- * @returns A set of objects containing movie names and file paths to locate them.
- * { fileName: "movie.mkv", directory: "./movies/movie.mkv" }
+ * @returns A set of objects containing movie file names and file paths to locate them.
+ * @example { fileName: "movie.mkv", directory: "./movies/movie.mkv" }
  */
 async function getAllMoviePaths() {
     let validFiles = new Set()

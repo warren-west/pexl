@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config({ quiet: true })
 const path = require('path')
 const PORT = process.env.PORT || '3000'
 const express = require('express')
@@ -13,15 +13,23 @@ app.set('view engine', 'ejs')
 app.use(express.json())
 app.use(express.static('public'))
 
+// Global Var
+let movieFilesSet = new Set()
+
 // GET /
 app.get('/', async (req, res) => {
+    // get movie name from query string
     let selectedMovie = req.query.selected || undefined
-    let movieFilesSet = await getAllMoviePaths()
 
+    // only re-populate movie list if it's empty
+    if (movieFilesSet.size == 0)
+        movieFilesSet = await getAllMoviePaths()
+
+    // if there's a selected movie from the query string, find it from the set
     if (!!selectedMovie)
         selectedMovie = [...movieFilesSet]
             .find(m => m.fileName == selectedMovie)
-    
+
     res.status(200).render('index', { movieFilesSet, selectedMovie })
 })
 
