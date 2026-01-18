@@ -33,9 +33,15 @@ app.get('/', async (req, res) => {
     res.status(200).render('index', { movieFilesSet, selectedMovie })
 })
 
+// POST /reload - reload the list of movies
+app.post('/reload', async (req, res) => {
+    movieFilesSet = await getAllMoviePaths()
+    res.redirect('/') // reload the home page
+})
+
 // 404 Not Found
 app.use(function (req, res) {
-    res.render('notFound', {})
+    res.render('notFound', { url: req.url})
 })
 
 app.listen(PORT, () => {

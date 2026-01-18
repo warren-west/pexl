@@ -5,26 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PEXL | Home</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <h1>Welcome to the home page</h1>
-    <h2>Movie list:</h2>
-    <ul>
-        <% movieFilesSet.forEach(mfs=> { %>
-            <li>
-                <a href="/?selected=<%= mfs.fileName %>">
-                    <%= mfs.fileName %> (<%= mfs.directory %>)
-                </a>
-            </li>
-            <% }) %>
-    </ul>
-    <h2>Top Movie:</h2>
-    <% if (locals.selectedMovie) { %>
-        <video id="mainPlayer" controls width="100%">
-            <source src="<%= selectedMovie.directory %>" type="video/mp4">
-        </video>
-    <% } %>
+    <h1 id="main-header">Welcome to PEXL</h1>
+    <h2>Movies:</h2>
+    <% movieFilesSet.forEach(mfs=> { %>
+        <a href="/?selected=<%= mfs.fileName %>">
+            <%= mfs.fileName %>
+        </a>
+        <% }) %>
+        
+        <% if (locals.selectedMovie) { %>
+            <video id="mainPlayer" controls width="100%">
+                <source src="<%= selectedMovie.directory %>" type="video/mp4">
+            </video>
+            <% } %>
+    <form action="/reload" method="post">
+        <button id="refresh-movie-list">↻ Refresh</button>
+    </form>
 </body>
 
 </html>

@@ -25,7 +25,10 @@ async function getAllMoviePaths() {
     let validFiles = new Set()
     fs.readdirSync(path.join(__dirname, 'public', MOVIE_DIRECTORY))
         .filter((f) => VALID_EXTENSIONS.includes(path.extname(f)))
-        .forEach((f) => validFiles.add({ fileName: f, directory: `./${MOVIE_DIRECTORY}/${f}`}))
+        .forEach((f) => {
+            console.log(f)    
+            validFiles.add({ fileName: f, directory: `./${MOVIE_DIRECTORY}/${f}`})
+        })
     
     return validFiles
 }

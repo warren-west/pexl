@@ -1,0 +1,34 @@
+:root {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    --midnight-velvet: #2c2631;
+    --lavender-mist: #fdfaff;
+    --tropical-teal: #16BAC5;
+    --electric-sapphire: #5863F8;
+}
+
+body {
+    background-color: var(--midnight-velvet);
+    color: var(--lavender-mist);
+
+    padding: 1rem 2rem;
+}
+
+a {
+    color: var(--tropical-teal);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+#refresh-movie-list {
+    background-color: var(--electric-sapphire);
+    color: var(--lavender-mist);
+    border-radius: 5px;
+    border-style: none;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+}
+
+#main-header {
+    font-size: 4.2rem;
+}
