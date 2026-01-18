@@ -9,7 +9,9 @@
 </head>
 
 <body>
-    <h1 id="main-header">Welcome to PEXL</h1>
+    <hr class="ribbon">
+    <h1 id="main-header">Welcome to <span class="pexl-p">P</span><span class="pexl-e">E</span><span class="pexl-x">X</span><span class="pexl-l">L</span></h1>
+    <hr class="ribbon">
     <h2>Movies:</h2>
     <% movieFilesSet.forEach(mfs=> { %>
         <a href="/?selected=<%= mfs.fileName %>">

@@ -2,15 +2,22 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
     --midnight-velvet: #2c2631;
-    --lavender-mist: #fdfaff;
-    --tropical-teal: #16BAC5;
     --electric-sapphire: #5863F8;
+    --tropical-teal: #16BAC5;
+    --maya-blue: #5FBFF9;
+    --lavender-mist: #fdfaff;
+    --baby-pink: #FF99C8;
+}
+
+.ribbon {
+    background: linear-gradient(90deg, rgba(88, 99, 248, 1) 0%, rgba(22, 186, 197, 1) 30%, rgba(95, 191, 249, 1) 80%, rgba(239, 233, 244, 1) 100%);
+    padding: 0.1rem 0;
+    border: none;
 }
 
 body {
     background-color: var(--midnight-velvet);
     color: var(--lavender-mist);
-
     padding: 1rem 2rem;
 }
 
@@ -31,4 +38,18 @@ a {
 
 #main-header {
     font-size: 4.2rem;
+    margin: 0.1rem;
+}
+
+.pexl-p {
+    color: var(--electric-sapphire);
+}
+.pexl-e {
+    color: var(--tropical-teal);
+}
+.pexl-x {
+    color: var(--maya-blue);
+}
+.pexl-l {
+    color: var(--baby-pink);
 }
