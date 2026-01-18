@@ -2,7 +2,8 @@
   "dependencies": {
     "dotenv": "^17.2.3",
     "ejs": "^4.0.1",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "qrcode": "^1.5.4"
   },
   "name": "pexl",
   "version": "1.0.0",
