@@ -3,6 +3,7 @@
     font-size: 18px;
     --midnight-velvet: #2c2631;
     --electric-sapphire: #5863F8;
+    --electric-sapphire-hover: #4d57e8;
     --tropical-teal: #16BAC5;
     --maya-blue: #5FBFF9;
     --lavender-mist: #fdfaff;
@@ -23,8 +24,12 @@ body {
 
 a {
     color: var(--tropical-teal);
-    display: block;
+    display: inline-block;
     margin-bottom: 0.5rem;
+}
+
+h2 {
+    margin-top: 2rem;
 }
 
 #refresh-movie-list {
@@ -33,7 +38,13 @@ a {
     border-radius: 5px;
     border-style: none;
     padding: 0.5rem 1.5rem;
+    margin-top: 1.5rem;
     font-size: 1rem;
+    float: right;
+}
+
+#refresh-movie-list:hover {
+    background-color: var(--electric-sapphire-hover);
 }
 
 #main-header {

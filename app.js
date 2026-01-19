@@ -18,6 +18,7 @@ let movieFilesSet = new Set()
 
 // GET /
 app.get('/', async (req, res) => {
+    console.log('PINGED')
     // get movie name from query string
     let selectedMovie = req.query.selected || undefined
 

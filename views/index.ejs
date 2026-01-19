@@ -12,6 +12,9 @@
     <hr class="ribbon">
     <h1 id="main-header">Welcome to <span class="pexl-p">P</span><span class="pexl-e">E</span><span class="pexl-x">X</span><span class="pexl-l">L</span></h1>
     <hr class="ribbon">
+    <form action="/reload" method="post">
+        <button id="refresh-movie-list">↻ Refresh</button>
+    </form>
     <h2>Movies:</h2>
     <% movieFilesSet.forEach(mfs=> { %>
         <a href="/?selected=<%= mfs.fileName %>">
@@ -24,9 +27,6 @@
                 <source src="<%= selectedMovie.directory %>" type="video/mp4">
             </video>
             <% } %>
-    <form action="/reload" method="post">
-        <button id="refresh-movie-list">↻ Refresh</button>
-    </form>
 </body>
 
 </html>
