@@ -32,7 +32,7 @@ h2 {
     margin-top: 2rem;
 }
 
-#refresh-movie-list {
+.button-primary {
     background-color: var(--electric-sapphire);
     color: var(--lavender-mist);
     border-radius: 5px;
@@ -40,16 +40,31 @@ h2 {
     padding: 0.5rem 1.5rem;
     margin-top: 1.5rem;
     font-size: 1rem;
-    float: right;
+}
+.button-primary:hover {
+    background-color: var(--electric-sapphire-hover);
 }
 
-#refresh-movie-list:hover {
-    background-color: var(--electric-sapphire-hover);
+.button-select-display {
+    margin-right: 0;
+    margin-left: 0;
 }
 
 #main-header {
     font-size: 4.2rem;
     margin: 0.1rem;
+}
+
+#flex-row-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#directory-container {
+    display: flex;
+    flex-direction: column;
+
 }
 
 .pexl-p {

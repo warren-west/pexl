@@ -6,27 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PEXL | Home</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
 <body>
-    <hr class="ribbon">
-    <h1 id="main-header">Welcome to <span class="pexl-p">P</span><span class="pexl-e">E</span><span class="pexl-x">X</span><span class="pexl-l">L</span></h1>
-    <hr class="ribbon">
-    <form action="/reload" method="post">
-        <button id="refresh-movie-list">↻ Refresh</button>
-    </form>
-    <h2>Movies:</h2>
-    <% movieFilesSet.forEach(mfs=> { %>
-        <a href="/?selected=<%= mfs.fileName %>">
-            <%= mfs.fileName %>
-        </a>
-        <% }) %>
+    <header>
+        <hr class="ribbon">
+        <h1 id="main-header">Welcome to <span class="pexl-p">P</span><span class="pexl-e">E</span><span
+                class="pexl-x">X</span><span class="pexl-l">L</span></h1>
+        <hr class="ribbon">
+
+    </header>
+    <!-- subheader flex container -->
+    <div id="flex-row-container">
+        <h2>Movies:</h2>
+
+        <div>
+            <button id="btn-layout-list" class="button-primary button-select-display"><i class="bi bi-list"></i></button>
+            <button id="btn-layout-grid" class="button-primary button-select-display"><i class="bi bi-grid"></i></button>
+        </div>
         
-        <% if (locals.selectedMovie) { %>
-            <video id="mainPlayer" controls width="100%">
-                <source src="<%= selectedMovie.directory %>" type="video/mp4">
-            </video>
-            <% } %>
+        <form action="/reload" method="post">
+            <button id="refresh-movie-list" class="button-primary">↻ Refresh</button>
+        </form>
+     </div>
+    <!-- container holding files and folders -->
+     <div id="directory-container">
+         <!-- render the list of top level subfolders -->
+         <% topLevelSubfolders.forEach(folder=> { %>
+             <a href="/?selected=<%= folder.folderName %>">
+                 <%= folder.folderName %>
+             </a>
+             <% }) %>
+                 <!-- render the list of top level movies -->
+                 <% movieFilesSet.forEach(mfs=> { %>
+                     <a href="/?selected=<%= mfs.fileName %>">
+                         <%= mfs.fileName %>
+                     </a>
+                     <% }) %>
+     
+                         <% if (locals.selectedMovie) { %>
+                             <video id="mainPlayer" controls width="100%">
+                                 <source src="<%= selectedMovie.directory %>" type="video/mp4">
+                             </video>
+                             <% } %>
+
+     </div>
 </body>
 
 </html>

@@ -23,14 +23,23 @@ const VALID_EXTENSIONS = [
  */
 async function getAllMoviePaths() {
     let validFiles = new Set()
-    fs.readdirSync(path.join(__dirname, 'public', MOVIE_DIRECTORY))
-        .filter((f) => VALID_EXTENSIONS.includes(path.extname(f)))
-        .forEach((f) => {
-            console.log(f)    
-            validFiles.add({ fileName: f, directory: `./${MOVIE_DIRECTORY}/${f}`})
+    let subfolders = new Set()
+    let currentPath = path.join(__dirname, 'public', MOVIE_DIRECTORY)
+    fs.readdirSync(currentPath)
+        .filter((f) => {
+            if (fs.lstatSync(path.join(currentPath, f)).isDirectory()) {
+                // console.log(`${f} is a folder.`)
+                // add the folder to list of subfolders
+                subfolders.add({ folderName: f, directory: path.join(currentPath, f)})
+            }
+            return VALID_EXTENSIONS.includes(path.extname(f))
         })
-    
-    return validFiles
+        .forEach((f) => {
+            console.log(f)
+            validFiles.add({ fileName: f, directory: `./${MOVIE_DIRECTORY}/${f}` })
+        })
+
+    return [validFiles, subfolders]
 }
 
 module.exports = {
